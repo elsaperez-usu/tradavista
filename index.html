@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0F2439">
+<title>Traducción a vista — Ámbito sanitario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2439; --navy2:#1B3A5E; --ink:#14233A; --muted:#5B6B80; --line:#DCE3EC;
+  --bg:#F3F6F9; --card:#FFFFFF; --chip:#E3ECF7; --chipInk:#1B3A5E;
+  --info:#E2ECF6; --ok:#1F7A4D; --okbg:#E3F3EA; --warn:#B4541A; --warnbg:#FBEDE3;
+  --rec:#D9534F; --recsoft:#E58A87; --mark:#FFF1B8;
+  --docsize:17px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:16px;line-height:1.45}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:640px;margin:0 auto;min-height:100vh;background:var(--bg);display:flex;flex-direction:column}
+/* Header */
+.hero{position:relative;color:#fff;padding:22px 20px 22px;overflow:hidden;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px),
+    linear-gradient(115deg,#0B1B2E 0%,#16365A 55%,#0F2439 100%);}
+.hero .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.hero h1{font-family:"Playfair Display",serif;font-size:30px;margin:14px 0 2px;font-weight:700;letter-spacing:.01em}
+.hero .sub{opacity:.85;font-size:15px}
+.hero .times{display:flex;gap:16px;margin-top:14px;font-size:12.5px;opacity:.85}
+.hero .times span{display:inline-flex;align-items:center;gap:5px}
+.iconbtn{background:transparent;border:0;color:#fff;padding:6px;border-radius:8px;opacity:.85}
+.iconbtn:hover{opacity:1;background:rgba(255,255,255,.1)}
+.hero .gear{position:absolute;top:14px;right:12px}
+.bar{position:sticky;top:0;z-index:20;color:#fff;display:flex;align-items:center;gap:8px;padding:10px 12px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px),linear-gradient(115deg,#0B1B2E,#16365A 60%,#0F2439)}
+.bar .t{font-weight:600;font-size:15px;flex:1}
+main{flex:1;padding:18px 14px 110px}
+/* Home list */
+.sechead{display:flex;align-items:center;gap:10px;margin:8px 4px 10px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.sechead:after{content:"";flex:1;height:1px;background:var(--line)}
+.sechead .n{order:2;font-weight:500;color:var(--muted)}
+.card{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 14px;margin-bottom:10px;text-align:left;width:100%;color:inherit;transition:box-shadow .15s,border-color .15s}
+.card:hover{border-color:#B9C7D8;box-shadow:0 2px 10px rgba(15,36,57,.07)}
+.num{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;
+  background:radial-gradient(circle at 30% 30%,#2B5687,#0F2439)}
+.card .body{flex:1;min-width:0}
+.card h3{margin:2px 0 3px;font-size:16px;font-weight:700}
+.card p{margin:0 0 8px;color:var(--muted);font-size:14px}
+.meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.chip{display:inline-block;background:var(--chip);color:var(--chipInk);font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:999px;text-transform:uppercase}
+.best{font-weight:600}
+.best.pass{color:var(--ok)} .best.fail{color:var(--warn)}
+.chev{color:#8A99AD;margin-top:4px}
+.intro-note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 18px;font-size:14.5px;color:#33445C}
+.intro-note b{color:var(--navy)}
+/* Doc intro */
+h2.dtitle{font-family:"Playfair Display",serif;font-size:26px;margin:10px 0 4px;color:var(--navy)}
+.dsub{color:var(--muted);font-size:14.5px;margin-bottom:16px}
+.timers{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.timers > div{padding:12px 14px}
+.timers > div + div{border-left:1px solid var(--line)}
+.timers .big{font-size:24px;font-weight:700;margin-top:4px;color:var(--navy)}
+.timers .lbl{font-size:12.5px;color:var(--muted)}
+.box{border-radius:10px;padding:11px 14px;font-size:14px;margin:12px 0}
+.box.info{background:var(--info);color:#23405F}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.panel h4{margin:0 0 4px;font-size:15px}
+.panel p{margin:0;color:var(--muted);font-size:13.5px}
+.rec-row{display:flex;gap:12px;align-items:flex-start}
+.switch{position:relative;flex:none;width:42px;height:24px;border-radius:999px;background:#C9D3DF;border:0;transition:background .2s;margin-top:2px}
+.switch:after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.switch[aria-checked="true"]{background:var(--navy2)}
+.switch[aria-checked="true"]:after{left:21px}
+details.acc{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:12px 0}
+details.acc summary{list-style:none;padding:13px 14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary:after{content:"⌄";color:var(--muted);transition:transform .2s}
+details.acc[open] summary:after{transform:rotate(180deg)}
+.crit{padding:10px 14px;border-top:1px solid var(--line)}
+.crit .h{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14.5px}
+.crit p{margin:3px 0 0;color:var(--muted);font-size:13.5px}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:5px}
+.tag.c{background:#FBE3E2;color:#A2302C}
+.tag.i{background:#E6EDF6;color:#2B4A70}
+/* Bottom action */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,rgba(243,246,249,0))}
+.dock .in{max-width:612px;margin:0 auto;display:flex;gap:10px}
+.btn{flex:1;border:0;border-radius:10px;padding:14px 16px;font-size:15.5px;font-weight:600;color:#fff;background:var(--navy)}
+.btn:hover{background:var(--navy2)}
+.btn.rec{background:var(--rec)} .btn.rec:hover{background:#C2423E}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn.ghost:hover{background:#F7F9FB}
+.btn:disabled{background:var(--recsoft);cursor:default}
+/* Phase */
+.phase{position:sticky;top:46px;z-index:15;background:var(--bg);padding:10px 2px 10px}
+.phase .row{display:flex;justify-content:space-between;align-items:baseline}
+.phase .name{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.phase .name .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--rec);margin-right:6px;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.phase .clock{font-variant-numeric:tabular-nums;font-size:30px;font-weight:700;color:var(--navy)}
+.phase .clock.low{color:var(--rec)}
+.prog{height:5px;background:#DDE5EE;border-radius:999px;overflow:hidden;margin-top:4px}
+.prog > i{display:block;height:100%;background:var(--navy2);transition:width .25s linear}
+.prog.int > i{background:var(--rec)}
+.paper{background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 1px 0 #E8EDF3,0 8px 24px rgba(15,36,57,.06);padding:26px 24px;font-family:"Source Serif 4",Georgia,serif;font-size:var(--docsize);line-height:1.6;color:#1C2633}
+.paper .ln{margin:0 0 .55em;white-space:pre-wrap}
+.paper .ln.cap{font-family:"Source Sans 3",sans-serif;font-weight:700;letter-spacing:.04em;font-size:.92em;color:#0F2439}
+.paper .ln.blank{height:.2em;margin:0}
+.paper mark{background:var(--mark);padding:0 2px;border-radius:2px;color:inherit}
+.paper mark sup{font-family:"Source Sans 3",sans-serif;font-size:.62em;font-weight:700;color:#8A6A00;margin-left:1px}
+.paper mark.hit{background:#D7F0E0}
+.paper mark.hit sup{color:var(--ok)}
+.hint{color:var(--muted);font-size:13px;text-align:center;margin:12px 0 0}
+/* Review */
+.score{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0 14px}
+.ring{--p:0;flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--c,var(--warn)) calc(var(--p)*1%),#E4EAF1 0)}
+.ring > span{width:60px;height:60px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:700;font-size:18px;color:var(--navy)}
+.score .txt b{display:block;font-size:16px}
+.score .txt small{color:var(--muted);font-size:13.5px}
+.status{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px}
+.status.pass{background:var(--okbg);color:var(--ok)} .status.fail{background:var(--warnbg);color:var(--warn)}
+.tabs{display:flex;background:#E4EAF1;border-radius:10px;padding:3px;margin:14px 0 10px}
+.tabs button{flex:1;border:0;background:transparent;padding:8px 6px;border-radius:8px;font-weight:600;font-size:13.5px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.units{list-style:none;margin:0;padding:0}
+.unit{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px;cursor:pointer;user-select:none}
+.unit.on{border-color:#9ED0B3;background:#F6FBF8}
+.unit .n{flex:none;font-size:12px;font-weight:700;color:#8A6A00;background:var(--mark);border-radius:6px;padding:2px 6px;margin-top:1px}
+.unit.on .n{background:#D7F0E0;color:var(--ok)}
+.unit .s{font-weight:600;font-size:14.5px}
+.unit .tr{color:var(--muted);font-size:14px;margin-top:2px}
+.unit .tr i{font-style:normal;color:#2B4A70}
+.unit .ck{flex:none;margin-left:auto;width:22px;height:22px;border-radius:6px;border:2px solid #B6C3D3;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:700}
+.unit.on .ck{background:var(--ok);border-color:var(--ok)}
+.tools{display:flex;gap:8px;justify-content:flex-end;margin:0 0 8px}
+.link{background:none;border:0;color:var(--navy2);font-weight:600;font-size:13px;padding:4px 2px;text-decoration:underline;text-underline-offset:2px}
+.rate{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.rate button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:13px;color:var(--muted);font-weight:600}
+.rate button[aria-pressed="true"].y{background:var(--okbg);border-color:#9ED0B3;color:var(--ok)}
+.rate button[aria-pressed="true"].p{background:#FFF6DB;border-color:#EBD38A;color:#8A6A00}
+.rate button[aria-pressed="true"].n{background:var(--warnbg);border-color:#EBB89A;color:var(--warn)}
+textarea{width:100%;min-height:90px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14.5px;resize:vertical;background:#fff}
+audio{width:100%;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 6px}
+.stats div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+.stats b{display:block;font-size:17px;color:var(--navy)}
+.stats small{color:var(--muted);font-size:12px}
+.vb{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-right:6px}
+.vb.correcto{background:var(--okbg);color:var(--ok)} .vb.parcial{background:#FFF6DB;color:#8A6A00}
+.vb.incorrecto{background:#FBE3E2;color:#A2302C} .vb.omitido{background:#ECEFF3;color:#4A5A70}
+.unit .ai{font-size:13.5px;color:#33445C;margin-top:5px}
+.unit .ai q{color:var(--muted);font-style:italic}
+.aipanel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.aipanel h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px}
+.aipanel .sm{color:var(--muted);font-size:13px;margin:0 0 8px}
+.aipanel ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.aipanel .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin-top:10px}
+.btn.sm{flex:none;padding:10px 14px;font-size:14px}
+.row-btns{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #C9D3DF;border-top-color:var(--navy2);border-radius:50%;animation:sp 0.8s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.live{font-size:12.5px;color:var(--muted);margin-top:6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.live .on{color:var(--rec);font-weight:700}
+.crit .aic{font-size:13px;color:#33445C;margin-top:6px;background:#F5F8FB;border-radius:8px;padding:7px 9px}
+footer{padding:22px 16px 120px;text-align:center;color:var(--muted);font-size:12.5px}
+footer .sig{font-family:"Playfair Display",serif;color:var(--navy);font-size:14px}
+/* Settings modal */
+.scrim{position:fixed;inset:0;background:rgba(10,22,38,.45);z-index:50;display:none;align-items:flex-end;justify-content:center}
+.scrim.open{display:flex}
+.sheet{background:#fff;width:100%;max-width:640px;border-radius:16px 16px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+.sheet h3{margin:0 0 12px;font-family:"Playfair Display",serif;font-size:21px;color:var(--navy)}
+.field{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.field label{font-weight:600;font-size:14.5px}
+.field small{display:block;color:var(--muted);font-weight:400;font-size:12.5px}
+.step{display:flex;align-items:center;gap:8px}
+.step button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:17px;color:var(--navy)}
+.step output{min-width:48px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+@media (min-width:700px){ main{padding:22px 18px 120px} .paper{padding:34px 36px} }
+@media print{.dock,.bar,.hero .gear{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<div class="scrim" id="settings" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+  <div class="sheet">
+    <h3 id="setTitle">Ajustes de práctica</h3>
+    <div class="field"><label>Lectura en silencio<small>Tiempo para leer antes de interpretar</small></label>
+      <div class="step"><button data-k="read" data-d="-15" aria-label="Menos tiempo de lectura">−</button><output id="o-read"></output><button data-k="read" data-d="15" aria-label="Más tiempo de lectura">+</button></div></div>
+    <div class="field"><label>Interpretación en voz alta<small>Tiempo para la traducción a vista</small></label>
+      <div class="step"><button data-k="int" data-d="-30" aria-label="Menos tiempo de interpretación">−</button><output id="o-int"></output><button data-k="int" data-d="30" aria-label="Más tiempo de interpretación">+</button></div></div>
+    <div class="field"><label>Tamaño del texto<small>Documento en pantalla</small></label>
+      <div class="step"><button data-k="size" data-d="-1" aria-label="Texto más pequeño">−</button><output id="o-size"></output><button data-k="size" data-d="1" aria-label="Texto más grande">+</button></div></div>
+    <div class="field"><label>Aviso sonoro<small>Tono al cambiar de fase y al terminar</small></label>
+      <button class="switch" id="beepSw" role="switch" aria-checked="true" aria-label="Aviso sonoro"></button></div>
+    <div class="field" style="border-bottom:0"><label>Restablecer<small>Vuelve a 2:00 y 4:00 y borra los puntajes guardados en este navegador</small></label>
+      <button class="link" id="resetBtn">Restablecer</button></div>
+    <div style="display:flex;margin-top:10px"><button class="btn" id="closeSet">Listo</button></div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   DOCUMENTS — Healthcare sight translation
+   units: [source segment as it appears in the document, acceptable rendering(s)]
+   ========================================================= */
+const DOCS = [
+{
+ id:1, dir:"en-es", title:"Instrucciones de alta", en:"Discharge Instructions",
+ desc:"Alta hospitalaria por neumonía: dosis, horarios, actividad y señales de alarma.",
+ src:`DISCHARGE INSTRUCTIONS
+Patient: Robert Mendez     Date of discharge: 03/14
+Diagnosis: Community-acquired pneumonia, right lower lobe
+
+You were admitted on March 10 with fever, shortness of breath, and a productive cough. Your chest X-ray showed an infection in the lower part of your right lung. You were treated with intravenous antibiotics and oxygen, and your condition has improved.
+
+Medications: Take amoxicillin-clavulanate 875 mg by mouth twice a day, every 12 hours, for 7 more days. Take it with food to reduce stomach upset. Finish the entire course even if you feel better. You may take acetaminophen 500 mg every 6 hours as needed for fever or pain, but do not exceed 3,000 mg in 24 hours.
+
+Activity: Rest as much as possible for the next week. Do not return to work until cleared by your primary care provider. Use your incentive spirometer 10 times every hour while awake.
+
+Diet: Drink at least 8 glasses of water a day unless your doctor has told you to limit fluids.
+
+Follow-up: See your primary care provider within 5 to 7 days. A repeat chest X-ray is recommended in 6 weeks.
+
+Return to the Emergency Department or call 911 if you have chest pain, a fever above 101°F (38.3°C) that lasts more than 48 hours, bluish lips or fingertips, or increasing difficulty breathing.`,
+ model:`INSTRUCCIONES DE ALTA
+Paciente: Robert Mendez     Fecha de alta: 14/03
+Diagnóstico: Neumonía adquirida en la comunidad, lóbulo inferior derecho
+
+Usted ingresó el 10 de marzo con fiebre, falta de aire y tos con flema. Su radiografía de tórax mostró una infección en la parte inferior del pulmón derecho. Recibió tratamiento con antibióticos por vía intravenosa y oxígeno, y su estado ha mejorado.
+
+Medicamentos: Tome amoxicilina con ácido clavulánico de 875 mg por vía oral dos veces al día, cada 12 horas, durante 7 días más. Tómela con alimentos para reducir las molestias estomacales. Termine todo el tratamiento aunque se sienta mejor. Puede tomar acetaminofén de 500 mg cada 6 horas según sea necesario para la fiebre o el dolor, pero no tome más de 3,000 mg en 24 horas.
+
+Actividad: Descanse lo más posible durante la próxima semana. No regrese al trabajo hasta que su proveedor de atención primaria lo autorice. Use su espirómetro de incentivo 10 veces cada hora mientras esté despierto.
+
+Dieta: Tome por lo menos 8 vasos de agua al día, a menos que su médico le haya indicado limitar los líquidos.
+
+Seguimiento: Consulte a su proveedor de atención primaria dentro de 5 a 7 días. Se recomienda repetir la radiografía de tórax en 6 semanas.
+
+Regrese al Departamento de Emergencias o llame al 911 si tiene dolor en el pecho, fiebre de más de 101 °F (38.3 °C) que dure más de 48 horas, labios o yemas de los dedos azulados, o si le cuesta cada vez más respirar.`,
+ units:[
+  ["Community-acquired pneumonia","neumonía adquirida en la comunidad"],
+  ["right lower lobe","lóbulo inferior derecho"],
+  ["shortness of breath","falta de aire / dificultad para respirar"],
+  ["productive cough","tos con flema / tos productiva"],
+  ["chest X-ray","radiografía de tórax"],
+  ["intravenous antibiotics","antibióticos por vía intravenosa / por la vena"],
+  ["875 mg by mouth twice a day","875 mg por vía oral / por la boca, dos veces al día"],
+  ["for 7 more days","durante 7 días más"],
+  ["Finish the entire course","termine todo el tratamiento"],
+  ["every 6 hours as needed","cada 6 horas según sea necesario / si lo necesita"],
+  ["do not exceed 3,000 mg in 24 hours","no tome más de 3,000 mg en 24 horas"],
+  ["until cleared by your primary care provider","hasta que su proveedor de atención primaria lo autorice / le dé de alta"],
+  ["incentive spirometer 10 times every hour","espirómetro de incentivo 10 veces cada hora"],
+  ["within 5 to 7 days","dentro de 5 a 7 días"],
+  ["101°F (38.3°C) that lasts more than 48 hours","101 °F (38.3 °C) que dure más de 48 horas"],
+  ["bluish lips or fingertips","labios o yemas de los dedos azulados / morados"]
+ ]
+},
+{
+ id:2, dir:"en-es", title:"Consentimiento quirúrgico", en:"Consent for Surgical Procedure",
+ desc:"Colecistectomía laparoscópica: riesgos, anestesia, transfusión y revocación.",
+ src:`CONSENT FOR SURGICAL PROCEDURE
+
+I, the undersigned, authorize Dr. Karen Liu and any assistants she may designate to perform the following procedure: laparoscopic cholecystectomy (removal of the gallbladder through small incisions in the abdomen).
+
+The nature and purpose of the procedure, possible alternative methods of treatment, and the risks involved have been explained to me. I understand that the possible complications include, but are not limited to, bleeding, infection, injury to the bile duct or intestines, blood clots, and adverse reactions to anesthesia. I have been informed that, if complications arise during the procedure, it may be necessary to convert to an open operation with a larger incision.
+
+I consent to the administration of general anesthesia by or under the direction of the anesthesiologist. I also consent to the transfusion of blood or blood products if deemed necessary by my physician.
+
+I acknowledge that no guarantee or assurance has been given to me as to the results that may be obtained. I have had the opportunity to ask questions, and all of my questions have been answered to my satisfaction.
+
+I understand that I may withdraw my consent at any time before the procedure begins.
+
+I certify that I have read and fully understand the above consent, or that it has been read to me in a language I understand.
+
+Signature of patient or legally authorized representative ________   Date ______   Time ______`,
+ model:`CONSENTIMIENTO PARA PROCEDIMIENTO QUIRÚRGICO
+
+Yo, el/la abajo firmante, autorizo a la Dra. Karen Liu y a los asistentes que ella designe a realizar el siguiente procedimiento: colecistectomía laparoscópica (extirpación de la vesícula biliar a través de pequeñas incisiones en el abdomen).
+
+Se me han explicado la naturaleza y el propósito del procedimiento, los posibles métodos alternativos de tratamiento y los riesgos que implica. Entiendo que las posibles complicaciones incluyen, entre otras, sangrado, infección, lesión del conducto biliar o de los intestinos, coágulos de sangre y reacciones adversas a la anestesia. Se me ha informado que, si surgen complicaciones durante el procedimiento, podría ser necesario convertirlo en una cirugía abierta con una incisión más grande.
+
+Doy mi consentimiento para que se me administre anestesia general por parte del anestesiólogo o bajo su dirección. También doy mi consentimiento para recibir una transfusión de sangre o de hemoderivados si mi médico lo considera necesario.
+
+Reconozco que no se me ha dado ninguna garantía ni seguridad sobre los resultados que puedan obtenerse. He tenido la oportunidad de hacer preguntas y todas mis preguntas se han contestado a mi satisfacción.
+
+Entiendo que puedo retirar mi consentimiento en cualquier momento antes de que comience el procedimiento.
+
+Certifico que he leído y entiendo plenamente el consentimiento anterior, o que me lo han leído en un idioma que entiendo.
+
+Firma del paciente o del representante legalmente autorizado ________   Fecha ______   Hora ______`,
+ units:[
+  ["the undersigned","el/la abajo firmante / el/la suscrito/a"],
+  ["any assistants she may designate","los asistentes que ella designe"],
+  ["laparoscopic cholecystectomy","colecistectomía laparoscópica"],
+  ["removal of the gallbladder","extirpación / extracción de la vesícula biliar"],
+  ["possible alternative methods of treatment","posibles métodos alternativos de tratamiento"],
+  ["but are not limited to","entre otras / sin limitarse a"],
+  ["injury to the bile duct","lesión del conducto biliar / de las vías biliares"],
+  ["blood clots","coágulos de sangre"],
+  ["adverse reactions to anesthesia","reacciones adversas a la anestesia"],
+  ["convert to an open operation","convertirlo en una cirugía abierta"],
+  ["by or under the direction of the anesthesiologist","por parte del anestesiólogo o bajo su dirección"],
+  ["blood or blood products","sangre o hemoderivados / productos sanguíneos"],
+  ["no guarantee or assurance","ninguna garantía ni seguridad"],
+  ["withdraw my consent at any time","retirar / revocar mi consentimiento en cualquier momento"],
+  ["legally authorized representative","representante legalmente autorizado"]
+ ]
+},
+{
+ id:3, dir:"en-es", title:"Preparación para colonoscopia", en:"Colonoscopy Preparation",
+ desc:"Instrucciones por días, cifras, horarios y prohibiciones alimentarias.",
+ src:`COLONOSCOPY PREPARATION INSTRUCTIONS
+
+Your procedure is scheduled for Thursday, June 5, at 8:30 a.m. Please arrive at the Endoscopy Center 1 hour before your appointment. You must have a responsible adult drive you home. Your procedure will be canceled if you do not have a ride. You may not take a taxi or rideshare alone.
+
+Seven days before: Stop taking iron supplements, fiber supplements, and aspirin, unless your cardiologist has told you otherwise. If you take a blood thinner such as warfarin or clopidogrel, call the prescribing doctor for instructions.
+
+Three days before: Avoid nuts, seeds, popcorn, corn, and raw fruits and vegetables.
+
+The day before: Begin a clear liquid diet when you wake up. Clear liquids include water, apple juice, broth, plain gelatin, and sports drinks. Do not drink anything red or purple. No solid food, milk, or alcohol.
+
+At 6:00 p.m., drink half of the bowel prep solution, one 8-ounce glass every 15 minutes, until it is finished.
+
+The day of the procedure: Five hours before your arrival time, drink the second half of the solution. Stop all liquids 2 hours before your arrival time, including water.
+
+If you have diabetes, ask your doctor how to adjust your insulin or other medications.
+
+To reschedule, call (435) 555-0182 at least 72 hours in advance.`,
+ model:`INSTRUCCIONES DE PREPARACIÓN PARA LA COLONOSCOPIA
+
+Su procedimiento está programado para el jueves 5 de junio a las 8:30 a. m. Por favor, llegue al Centro de Endoscopia 1 hora antes de su cita. Un adulto responsable debe llevarlo a casa en auto. Su procedimiento se cancelará si no tiene quién lo lleve. No puede irse solo en taxi ni en un servicio de transporte compartido.
+
+Siete días antes: Deje de tomar suplementos de hierro, suplementos de fibra y aspirina, a menos que su cardiólogo le haya indicado otra cosa. Si toma un anticoagulante como warfarina o clopidogrel, llame al médico que se lo recetó para recibir instrucciones.
+
+Tres días antes: Evite las nueces, las semillas, las palomitas de maíz, el maíz y las frutas y verduras crudas.
+
+El día anterior: Comience una dieta de líquidos claros al despertarse. Los líquidos claros incluyen agua, jugo de manzana, caldo, gelatina simple y bebidas deportivas. No tome nada de color rojo ni morado. No coma alimentos sólidos ni tome leche ni alcohol.
+
+A las 6:00 p. m., tome la mitad de la solución para la preparación intestinal, un vaso de 8 onzas cada 15 minutos, hasta terminarla.
+
+El día del procedimiento: Cinco horas antes de su hora de llegada, tome la segunda mitad de la solución. Deje de tomar todo tipo de líquidos, incluso agua, 2 horas antes de su hora de llegada.
+
+Si tiene diabetes, pregúntele a su médico cómo ajustar la insulina u otros medicamentos.
+
+Para cambiar la fecha de su cita, llame al (435) 555-0182 con al menos 72 horas de anticipación.`,
+ units:[
+  ["Thursday, June 5, at 8:30 a.m.","jueves 5 de junio a las 8:30 a. m."],
+  ["1 hour before your appointment","1 hora antes de su cita"],
+  ["a responsible adult drive you home","un adulto responsable debe llevarlo a casa"],
+  ["taxi or rideshare alone","solo/a en taxi ni en servicio de transporte compartido"],
+  ["iron supplements, fiber supplements, and aspirin","suplementos de hierro, suplementos de fibra y aspirina"],
+  ["unless your cardiologist has told you otherwise","a menos que su cardiólogo le haya indicado otra cosa"],
+  ["blood thinner","anticoagulante / medicamento para diluir la sangre"],
+  ["call the prescribing doctor","llame al médico que se lo recetó"],
+  ["nuts, seeds, popcorn, corn","nueces, semillas, palomitas de maíz, maíz"],
+  ["clear liquid diet","dieta de líquidos claros / transparentes"],
+  ["anything red or purple","nada de color rojo ni morado"],
+  ["bowel prep solution","solución para la preparación / limpieza intestinal"],
+  ["one 8-ounce glass every 15 minutes","un vaso de 8 onzas cada 15 minutos"],
+  ["Stop all liquids 2 hours before your arrival time, including water","deje de tomar todo líquido, incluso agua, 2 horas antes de su llegada"],
+  ["adjust your insulin","ajustar la insulina"],
+  ["at least 72 hours in advance","con al menos 72 horas de anticipación"]
+ ]
+},
+{
+ id:4, dir:"en-es", title:"Plan de acción para el asma", en:"Asthma Action Plan",
+ desc:"Plan pediátrico por zonas: inhalaciones, frecuencias y alerta médica.",
+ src:`ASTHMA ACTION PLAN
+Patient: Sofia Ramírez, age 8     Weight: 27 kg
+
+GREEN ZONE – Doing well: No cough, wheeze, chest tightness, or shortness of breath during the day or night. Can do usual activities.
+Daily controller medicine: Fluticasone 44 mcg, 2 puffs twice a day, with a spacer. Rinse mouth after each use. Take this medicine every day, even when your child has no symptoms.
+Before exercise: Albuterol 90 mcg, 2 puffs, 15 minutes before sports or physical education class.
+
+YELLOW ZONE – Getting worse: Cough, wheeze, chest tightness, or waking at night due to asthma.
+Give albuterol 2 to 4 puffs every 4 hours as needed. Continue the controller medicine. If your child does not return to the Green Zone within 24 hours, call the pediatrician's office.
+
+RED ZONE – Medical alert: Very short of breath, quick-relief medicine is not helping, cannot walk or talk well, ribs show when breathing, or lips or fingernails are gray or blue.
+Give albuterol 6 puffs now and go to the nearest emergency room or call 911. Do not wait.
+
+Known triggers: cigarette smoke, cats, pollen, cold air, colds and flu.
+Ask the school nurse to keep a copy of this plan and an extra inhaler with a spacer at school.`,
+ model:`PLAN DE ACCIÓN PARA EL ASMA
+Paciente: Sofia Ramírez, 8 años     Peso: 27 kg
+
+ZONA VERDE – Se siente bien: No tiene tos, silbido en el pecho, opresión en el pecho ni falta de aire durante el día ni la noche. Puede hacer sus actividades habituales.
+Medicamento de control diario: Fluticasona de 44 mcg, 2 inhalaciones dos veces al día, con espaciador. Que se enjuague la boca después de cada uso. Dele este medicamento todos los días, aun cuando su hijo/a no tenga síntomas.
+Antes de hacer ejercicio: Albuterol de 90 mcg, 2 inhalaciones, 15 minutos antes de practicar deportes o de la clase de educación física.
+
+ZONA AMARILLA – Está empeorando: Tos, silbido en el pecho, opresión en el pecho o se despierta de noche por el asma.
+Dele albuterol, de 2 a 4 inhalaciones cada 4 horas según sea necesario. Siga dándole el medicamento de control. Si su hijo/a no regresa a la Zona Verde en 24 horas, llame al consultorio del pediatra.
+
+ZONA ROJA – Alerta médica: Le falta mucho el aire, el medicamento de alivio rápido no le ayuda, no puede caminar ni hablar bien, se le marcan las costillas al respirar, o tiene los labios o las uñas grises o azules.
+Dele 6 inhalaciones de albuterol ahora mismo y vaya a la sala de emergencias más cercana o llame al 911. No espere.
+
+Factores desencadenantes conocidos: humo de cigarrillo, gatos, polen, aire frío, resfriados y gripe.
+Pídale a la enfermera de la escuela que guarde una copia de este plan y un inhalador adicional con espaciador en la escuela.`,
+ units:[
+  ["wheeze","silbido en el pecho / sibilancias"],
+  ["chest tightness","opresión en el pecho"],
+  ["Daily controller medicine","medicamento de control diario"],
+  ["2 puffs twice a day, with a spacer","2 inhalaciones / disparos dos veces al día, con espaciador / cámara"],
+  ["Rinse mouth after each use","que se enjuague la boca después de cada uso"],
+  ["even when your child has no symptoms","aun cuando su hijo/a no tenga síntomas"],
+  ["15 minutes before sports or physical education class","15 minutos antes de deportes o de la clase de educación física"],
+  ["2 to 4 puffs every 4 hours as needed","de 2 a 4 inhalaciones cada 4 horas según sea necesario"],
+  ["return to the Green Zone within 24 hours","regresa a la Zona Verde en 24 horas"],
+  ["quick-relief medicine is not helping","el medicamento de alivio rápido / de rescate no le ayuda"],
+  ["ribs show when breathing","se le marcan / se le ven las costillas al respirar"],
+  ["lips or fingernails are gray or blue","labios o uñas grises o azules"],
+  ["6 puffs now","6 inhalaciones ahora mismo"],
+  ["nearest emergency room","sala de emergencias más cercana"],
+  ["Known triggers","factores desencadenantes conocidos"],
+  ["an extra inhaler with a spacer","un inhalador adicional con espaciador"]
+ ]
+},
+{
+ id:5, dir:"en-es", title:"Aviso de prácticas de privacidad", en:"Notice of Privacy Practices",
+ desc:"Registro jurídico-administrativo (HIPAA): usos, divulgaciones y derechos.",
+ src:`NOTICE OF PRIVACY PRACTICES
+
+THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
+
+We are required by law to maintain the privacy of your protected health information and to provide you with notice of our legal duties and privacy practices.
+
+How we may use and disclose your information: We may use your health information to provide treatment, to obtain payment for services, and to carry out health care operations. For example, we may share your test results with a specialist involved in your care or send billing information to your insurance company.
+
+We may also disclose your information without your authorization when required by law, such as to report suspected abuse or neglect, to respond to a court order, or to prevent a serious threat to public health or safety.
+
+Your rights: You have the right to request a copy of your medical record, to ask us to correct information you believe is incorrect, and to request that we limit certain uses and disclosures. You may also request that we contact you at an alternative address or telephone number.
+
+Most uses of psychotherapy notes and the sale of your information require your written authorization. You may revoke an authorization in writing at any time, except to the extent that we have already relied on it.
+
+If you believe your privacy rights have been violated, you may file a complaint with our Privacy Officer or with the U.S. Department of Health and Human Services. You will not be retaliated against for filing a complaint.`,
+ model:`AVISO DE PRÁCTICAS DE PRIVACIDAD
+
+ESTE AVISO DESCRIBE CÓMO SE PUEDE USAR Y DIVULGAR SU INFORMACIÓN MÉDICA Y CÓMO PUEDE USTED TENER ACCESO A ESTA INFORMACIÓN. LÉALO CON ATENCIÓN.
+
+La ley nos exige mantener la privacidad de su información de salud protegida y entregarle un aviso sobre nuestras obligaciones legales y prácticas de privacidad.
+
+Cómo podemos usar y divulgar su información: Podemos usar su información de salud para brindarle tratamiento, obtener el pago de los servicios y llevar a cabo las operaciones de atención médica. Por ejemplo, podemos compartir los resultados de sus análisis con un especialista que participe en su atención o enviar información de facturación a su compañía de seguros.
+
+También podemos divulgar su información sin su autorización cuando la ley lo exija; por ejemplo, para denunciar sospechas de abuso o negligencia, para responder a una orden judicial o para prevenir una amenaza grave para la salud o la seguridad públicas.
+
+Sus derechos: Usted tiene derecho a solicitar una copia de su expediente médico, a pedirnos que corrijamos la información que considere incorrecta y a solicitar que limitemos ciertos usos y divulgaciones. También puede solicitar que nos comuniquemos con usted en otra dirección o número de teléfono.
+
+La mayoría de los usos de las notas de psicoterapia y la venta de su información requieren su autorización por escrito. Puede revocar una autorización por escrito en cualquier momento, salvo en la medida en que ya hayamos actuado con base en ella.
+
+Si cree que se han violado sus derechos de privacidad, puede presentar una queja ante nuestro Oficial de Privacidad o ante el Departamento de Salud y Servicios Humanos de los EE. UU. No se tomarán represalias en su contra por presentar una queja.`,
+ units:[
+  ["used and disclosed","usar y divulgar"],
+  ["We are required by law","la ley nos exige / estamos obligados por ley"],
+  ["protected health information","información de salud protegida"],
+  ["legal duties and privacy practices","obligaciones legales y prácticas de privacidad"],
+  ["health care operations","operaciones de atención médica"],
+  ["test results with a specialist","resultados de sus análisis / pruebas con un especialista"],
+  ["without your authorization","sin su autorización"],
+  ["suspected abuse or neglect","sospechas de abuso / maltrato o negligencia / abandono"],
+  ["court order","orden judicial"],
+  ["serious threat to public health or safety","amenaza grave para la salud o la seguridad públicas"],
+  ["medical record","expediente / historial médico"],
+  ["limit certain uses and disclosures","limitemos ciertos usos y divulgaciones"],
+  ["psychotherapy notes","notas de psicoterapia"],
+  ["revoke an authorization in writing","revocar una autorización por escrito"],
+  ["except to the extent that we have already relied on it","salvo en la medida en que ya hayamos actuado con base en ella"],
+  ["U.S. Department of Health and Human Services","Departamento de Salud y Servicios Humanos de los EE. UU."],
+  ["will not be retaliated against","no se tomarán represalias en su contra"]
+ ]
+},
+{
+ id:6, dir:"en-es", title:"Carta de resultados prenatales", en:"Prenatal Results Letter",
+ desc:"Prueba de glucosa en el embarazo: valores, cita de seguimiento y preparación.",
+ src:`Dear Ms. Herrera,
+
+We are writing to let you know the results of the glucose screening test you had on September 22, during your 26th week of pregnancy.
+
+Your one-hour glucose challenge test result was 152 mg/dL. A result of 140 mg/dL or higher is considered above normal. This does not mean that you have gestational diabetes, but it does mean that you need a follow-up test to confirm or rule out the diagnosis.
+
+The follow-up test is a three-hour oral glucose tolerance test. It has been scheduled for Monday, October 2, at 7:45 a.m. at the outpatient laboratory on the second floor.
+
+To prepare for the test:
+• Eat your normal diet for three days before the test.
+• Do not eat or drink anything except small sips of water after midnight the night before.
+• Do not smoke or chew gum the morning of the test.
+• Plan to stay at the laboratory for about three and a half hours. Your blood will be drawn four times.
+
+If the test confirms gestational diabetes, your provider will refer you to a dietitian and a diabetes educator. Most women can control their blood sugar with diet and exercise, but some may need medication.
+
+If you have any questions or need to change your appointment, please call the Women's Health Clinic at (801) 555-0147.
+
+Sincerely,
+Laura Benson, CNM`,
+ model:`Estimada Sra. Herrera:
+
+Le escribimos para informarle los resultados del análisis de detección de glucosa que se hizo el 22 de septiembre, durante la semana 26 de su embarazo.
+
+El resultado de su prueba de sobrecarga de glucosa de una hora fue de 152 mg/dL. Un resultado de 140 mg/dL o más se considera por encima de lo normal. Esto no significa que usted tenga diabetes gestacional, pero sí significa que necesita una prueba de seguimiento para confirmar o descartar el diagnóstico.
+
+La prueba de seguimiento es una prueba oral de tolerancia a la glucosa de tres horas. Está programada para el lunes 2 de octubre a las 7:45 a. m. en el laboratorio de consulta externa, en el segundo piso.
+
+Para prepararse para la prueba:
+• Coma su dieta normal durante los tres días antes de la prueba.
+• No coma ni beba nada después de la medianoche anterior, excepto pequeños sorbos de agua.
+• No fume ni mastique chicle la mañana de la prueba.
+• Planee quedarse en el laboratorio unas tres horas y media. Le sacarán sangre cuatro veces.
+
+Si la prueba confirma la diabetes gestacional, su proveedor la referirá a un dietista y a un educador en diabetes. La mayoría de las mujeres puede controlar el nivel de azúcar en la sangre con dieta y ejercicio, pero algunas pueden necesitar medicamentos.
+
+Si tiene alguna pregunta o necesita cambiar su cita, llame a la Clínica de Salud de la Mujer al (801) 555-0147.
+
+Atentamente,
+Laura Benson, CNM`,
+ units:[
+  ["glucose screening test","análisis / prueba de detección de glucosa"],
+  ["September 22, during your 26th week of pregnancy","22 de septiembre, en la semana 26 de su embarazo"],
+  ["one-hour glucose challenge test","prueba de sobrecarga de glucosa de una hora"],
+  ["152 mg/dL","152 mg/dL"],
+  ["140 mg/dL or higher","140 mg/dL o más"],
+  ["gestational diabetes","diabetes gestacional / del embarazo"],
+  ["confirm or rule out the diagnosis","confirmar o descartar el diagnóstico"],
+  ["three-hour oral glucose tolerance test","prueba oral de tolerancia a la glucosa de tres horas"],
+  ["Monday, October 2, at 7:45 a.m.","lunes 2 de octubre a las 7:45 a. m."],
+  ["outpatient laboratory on the second floor","laboratorio de consulta externa / ambulatorio, segundo piso"],
+  ["small sips of water after midnight","pequeños sorbos de agua después de la medianoche"],
+  ["Do not smoke or chew gum","no fume ni mastique chicle"],
+  ["three and a half hours","tres horas y media"],
+  ["Your blood will be drawn four times","le sacarán sangre cuatro veces"],
+  ["dietitian and a diabetes educator","dietista / nutriólogo y educador en diabetes"],
+  ["blood sugar","azúcar en la sangre"]
+ ]
+},
+{
+ id:7, dir:"es-en", title:"Resumen clínico", en:"Clinical Summary",
+ desc:"Informe médico mexicano: antecedentes, exploración física, manejo y egreso.",
+ src:`RESUMEN CLÍNICO
+Hospital General de Zona No. 6, IMSS — Ciudad Juárez, Chihuahua
+Nombre: María Guadalupe Torres Aguilar     Edad: 58 años     Fecha: 12 de agosto
+
+Paciente femenina con antecedentes de diabetes mellitus tipo 2 de 15 años de evolución, en tratamiento con metformina 850 mg cada 12 horas, e hipertensión arterial sistémica controlada con losartán 50 mg al día. Alérgica a la penicilina.
+
+Acude al servicio de urgencias por presentar dolor punzante en el pie derecho, de una semana de evolución, acompañado de enrojecimiento, aumento de volumen y salida de secreción purulenta en el primer ortejo. Refiere fiebre no cuantificada desde hace tres días.
+
+A la exploración física se encuentra consciente, orientada, con temperatura de 38.4 °C, tensión arterial de 145/90 mmHg y glucosa capilar de 287 mg/dL. Se observa úlcera de 2 cm en la cara plantar del primer ortejo derecho, con bordes necróticos.
+
+Se inicia manejo con clindamicina intravenosa, control glucémico con insulina de acción rápida y curaciones diarias. La radiografía descarta osteomielitis.
+
+Se egresa por mejoría al quinto día. Se indica continuar con clindamicina 300 mg vía oral cada 6 horas por 10 días, vigilancia estrecha de la glucosa y cita con el servicio de angiología en un mes.
+
+Dr. Jorge Sánchez Medina — Medicina Interna — Céd. Prof. 4587213`,
+ model:`CLINICAL SUMMARY
+General Zone Hospital No. 6, IMSS — Ciudad Juárez, Chihuahua
+Name: María Guadalupe Torres Aguilar     Age: 58     Date: August 12
+
+Female patient with a 15-year history of type 2 diabetes mellitus, treated with metformin 850 mg every 12 hours, and systemic arterial hypertension controlled with losartan 50 mg daily. Allergic to penicillin.
+
+She presented to the emergency department with stabbing pain in the right foot of one week's duration, accompanied by redness, swelling, and purulent discharge from the big toe. She reports an unmeasured fever for the past three days.
+
+On physical examination, she is alert and oriented, with a temperature of 38.4 °C, blood pressure of 145/90 mmHg, and capillary blood glucose of 287 mg/dL. A 2 cm ulcer with necrotic edges is observed on the plantar surface of the right big toe.
+
+Treatment was started with intravenous clindamycin, glycemic control with rapid-acting insulin, and daily wound care. X-rays ruled out osteomyelitis.
+
+She was discharged on the fifth day due to improvement. She is to continue clindamycin 300 mg by mouth every 6 hours for 10 days, with close monitoring of blood glucose and a follow-up appointment with the angiology service in one month.
+
+Dr. Jorge Sánchez Medina — Internal Medicine — Professional License No. 4587213`,
+ units:[
+  ["de 15 años de evolución","15-year history"],
+  ["hipertensión arterial sistémica","systemic arterial hypertension / high blood pressure"],
+  ["Alérgica a la penicilina","allergic to penicillin"],
+  ["Acude al servicio de urgencias","presented to / came to the emergency department"],
+  ["dolor punzante","stabbing / sharp pain"],
+  ["aumento de volumen","swelling"],
+  ["secreción purulenta en el primer ortejo","purulent discharge / pus from the big toe"],
+  ["fiebre no cuantificada","unmeasured fever / fever, temperature not taken"],
+  ["consciente, orientada","alert / conscious and oriented"],
+  ["glucosa capilar de 287 mg/dL","capillary (fingerstick) blood glucose of 287 mg/dL"],
+  ["cara plantar del primer ortejo derecho","plantar surface / sole side of the right big toe"],
+  ["bordes necróticos","necrotic edges / borders"],
+  ["insulina de acción rápida","rapid-acting / fast-acting insulin"],
+  ["curaciones diarias","daily wound care / dressing changes"],
+  ["descarta osteomielitis","ruled out osteomyelitis"],
+  ["Se egresa por mejoría","discharged due to improvement"],
+  ["vigilancia estrecha de la glucosa","close monitoring of blood glucose"],
+  ["Céd. Prof.","professional license no."]
+ ]
+},
+{
+ id:8, dir:"es-en", title:"Formulario de queja del paciente", en:"Patient Complaint Form",
+ desc:"Registro coloquial de un familiar: acceso lingüístico, error de medicación y caída.",
+ src:`Clínica Comunitaria del Valle — FORMULARIO DE QUEJA DEL PACIENTE
+Nombre de quien presenta la queja: Rosa Elena Cruz (hija de la paciente)
+Fecha del incidente: 3 de febrero
+
+Describa lo que pasó:
+Mi mamá, la señora Ofelia Cruz, tiene 79 años y no habla inglés. El 3 de febrero la llevamos a su cita de control de la presión. Pedimos un intérprete desde que llegamos, pero la recepcionista nos dijo que no había y que yo podía traducir. Yo no entiendo bien los términos médicos y así se lo dije.
+
+El doctor le cambió la medicina de la presión, pero nadie nos explicó cómo tomarla. En la farmacia nos dieron las instrucciones solamente en inglés. Mi mamá se tomó dos pastillas en la mañana en vez de una, y esa misma tarde se mareó, se cayó en el baño y se pegó en la cabeza. Tuvimos que llevarla a emergencias, donde le hicieron una tomografía y la dejaron en observación toda la noche. Gracias a Dios no se fracturó nada.
+
+¿Qué le gustaría que hiciera la clínica?
+Quiero que de aquí en adelante a mi mamá siempre le pongan un intérprete calificado, aunque sea por teléfono, y que le den las instrucciones de sus medicinas por escrito en español. También quiero hablar con alguien de la administración sobre la cuenta del hospital, porque no me parece justo que nosotros tengamos que pagarla.
+
+Firma: Rosa E. Cruz     Teléfono: (385) 555-0129`,
+ model:`Valley Community Clinic — PATIENT COMPLAINT FORM
+Name of person filing the complaint: Rosa Elena Cruz (patient's daughter)
+Date of incident: February 3
+
+Describe what happened:
+My mom, Mrs. Ofelia Cruz, is 79 years old and doesn't speak English. On February 3 we took her to her blood pressure checkup. We asked for an interpreter as soon as we got there, but the receptionist told us there wasn't one and that I could translate. I don't understand medical terms very well, and I told her so.
+
+The doctor changed her blood pressure medicine, but nobody explained to us how to take it. At the pharmacy they gave us the instructions only in English. My mom took two pills in the morning instead of one, and that same afternoon she got dizzy, fell in the bathroom, and hit her head. We had to take her to the ER, where they did a CT scan and kept her overnight for observation. Thank God nothing was broken.
+
+What would you like the clinic to do?
+From now on, I want my mom to always be given a qualified interpreter, even if it's over the phone, and I want her to get the instructions for her medicines in writing in Spanish. I also want to talk to someone in administration about the hospital bill, because I don't think it's fair that we should have to pay it.
+
+Signature: Rosa E. Cruz     Phone: (385) 555-0129`,
+ units:[
+  ["hija de la paciente","the patient's daughter"],
+  ["79 años y no habla inglés","79 years old and doesn't speak English"],
+  ["cita de control de la presión","blood pressure checkup / follow-up"],
+  ["Pedimos un intérprete desde que llegamos","we asked for an interpreter as soon as we got there"],
+  ["que yo podía traducir","that I could translate"],
+  ["términos médicos","medical terms"],
+  ["le cambió la medicina de la presión","changed her blood pressure medicine"],
+  ["solamente en inglés","only in English"],
+  ["dos pastillas en la mañana en vez de una","two pills in the morning instead of one"],
+  ["se mareó, se cayó en el baño y se pegó en la cabeza","got dizzy, fell in the bathroom and hit her head"],
+  ["tomografía","CT scan"],
+  ["en observación toda la noche","overnight for observation"],
+  ["Gracias a Dios no se fracturó nada","thank God nothing was broken"],
+  ["intérprete calificado, aunque sea por teléfono","qualified interpreter, even if it's over the phone"],
+  ["por escrito en español","in writing in Spanish"],
+  ["la cuenta del hospital","the hospital bill"],
+  ["no me parece justo","I don't think it's fair"]
+ ]
+}
+];
+
+const RUBRIC = [
+ ["Integridad","c","Todo el contenido se interpreta, sin omisiones ni añadidos."],
+ ["Exactitud","c","Sentido correcto: cifras, dosis, horarios y fechas sin errores; sin falsos cognados."],
+ ["Fidelidad al registro","c","Se conserva el registro del documento: jurídico-administrativo, clínico o coloquial."],
+ ["Fluidez y expresión","i","Ritmo natural, sin arranques en falso ni pausas largas; voz clara."],
+ ["Neutralidad","i","Sin comentarios propios, explicaciones ni simplificaciones añadidas."],
+ ["Terminología","i","Vocabulario médico correcto y comprensible en ambos idiomas."]
+];
+const PASS = 70;
+
+/* ---------- state & storage ---------- */
+const store = {
+  get(k,d){try{const v=localStorage.getItem("stv-health-"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("stv-health-"+k,JSON.stringify(v))}catch(e){}},
+  clear(){try{Object.keys(localStorage).filter(k=>k.startsWith("stv-health-")).forEach(k=>localStorage.removeItem(k))}catch(e){}}
+};
+const S = Object.assign({read:120,int:240,size:17,beep:true}, store.get("settings",{}));
+let wantRec = store.get("wantRec", false);
+let run = null; // current session
+
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = s=>{s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
+const words = t=>t.trim().split(/\s+/).length;
+const dirLabel = d=>d==="en-es"?"Inglés → Español":"Español → Inglés";
+document.documentElement.style.setProperty("--docsize",S.size+"px");
+
+const ICON = {
+ clock:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ gear:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>',
+ back:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>',
+ chev:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>',
+ book:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6B80" stroke-width="1.8"><path d="M3 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h7z"/></svg>',
+ mic:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9534F" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>'
+};
+
+/* ---------- audio cue ---------- */
+let actx=null;
+function beep(n=1){
+  if(!S.beep) return;
+  try{
+    actx = actx || new (window.AudioContext||window.webkitAudioContext)();
+    for(let i=0;i<n;i++){
+      const o=actx.createOscillator(), g=actx.createGain(), t=actx.currentTime+i*0.28;
+      o.frequency.value=880; o.connect(g); g.connect(actx.destination);
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.18,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+0.22);
+      o.start(t); o.stop(t+0.24);
+    }
+  }catch(e){}
+}
+
+/* ---------- recording (works when the file is opened directly or hosted; blocked inside some embedded viewers) ---------- */
+let stream=null, recorder=null, chunks=[];
+async function ensureMic(){
+  if(stream) return true;
+  try{
+    if(!navigator.mediaDevices||!window.MediaRecorder) throw 0;
+    stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    return true;
+  }catch(e){ stream=null; return false; }
+}
+function startRec(){
+  if(!stream) return;
+  try{ chunks=[]; recorder=new MediaRecorder(stream); recorder.ondataavailable=e=>e.data.size&&chunks.push(e.data); recorder.start(); }catch(e){recorder=null}
+}
+function stopRec(){
+  return new Promise(res=>{
+    if(!recorder||recorder.state==="inactive"){res(null);return}
+    recorder.onstop=()=>res(chunks.length?URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType||"audio/webm"})):null);
+    try{recorder.stop()}catch(e){res(null)}
+  });
+}
+function releaseMic(){ if(stream){stream.getTracks().forEach(t=>t.stop());stream=null} }
+
+/* ---------- AI evaluation: dictation (speech → text) + Claude grading ---------- */
+let DICT=null, SAMPLE=null, capsReady=false;
+let wantAI = store.get("wantAI", true);
+let dictLangOK = true;
+const targetLang = d=>d.dir==="en-es"?"es":"en";
+(async()=>{
+  if(window.claude){
+    try{ DICT = await claude.use("dictation"); }catch(e){ DICT=null; }
+    try{ SAMPLE = await claude.use("sample"); }catch(e){ SAMPLE=null; }
+  }
+  capsReady=true;
+  if(DICT){
+    DICT.onFinal(({text})=>{ if(run&&run.collect){ run.transcript=((run.transcript||"")+text).replace(/^\s+/,""); updLive(); } });
+    DICT.onPartial(({text})=>{ if(run){ run.partial=text; updLive(); } });
+    DICT.onState(({state,reason})=>{ if(run){ run.dictState=state; if(state==="idle"&&reason&&reason!=="stopped") run.dictReason=reason; updLive(); } });
+  }
+  if(run&&run.phase==="intro") render();
+})();
+function aiAvailable(){ return !!(DICT&&SAMPLE); }
+/* must be called synchronously from a click */
+function startDict(){
+  if(!DICT||!run) return;
+  run.dictReason=null;
+  const opts = dictLangOK ? {language: targetLang(run.doc)} : undefined;
+  DICT.start(opts).catch(e=>{
+    if(!run) return;
+    if(e.code==="unavailable"&&dictLangOK){ dictLangOK=false; }
+    run.dictReason=e.code; updLive();
+  });
+}
+function updLive(){
+  const el=document.getElementById("live"); if(!el||!run) return;
+  const n=(run.transcript||"").trim()?run.transcript.trim().split(/\s+/).length:0;
+  const listening=run.dictState==="listening"||run.dictState==="starting";
+  const msgs={not_granted:"Dictado no permitido. Puedes activarlo en el menú Permisos del artefacto.",viewer_stopped:"Dictado detenido.",hidden:"Dictado pausado al salir de la pestaña.",unavailable:"Dictado no disponible en este idioma; vuelve a intentarlo.",rate_limited:"Demasiadas solicitudes; intenta de nuevo en un momento.",upstream_error:"Falló el micrófono o el servicio de voz.",dismissed:"No se aceptó el permiso de dictado.",stopped:""};
+  el.innerHTML = listening
+    ? `<span class="on">● Escuchando</span><span>${n} palabras transcritas</span>`
+    : `<span>Dictado inactivo${run.dictReason&&msgs[run.dictReason]?" · "+msgs[run.dictReason]:""}</span>${run.phase==="interpreting"&&run.dictReason!=="not_granted"?'<button class="link" id="reDict">Activar dictado</button>':""}`;
+  const b=document.getElementById("reDict"); if(b) b.onclick=()=>startDict();
+}
+const VMAP={cumplido:"y",parcial:"p",no_cumplido:"n"};
+function aiPrompt(doc,transcript){
+  const srcL=doc.dir==="en-es"?"inglés":"español", tgtL=doc.dir==="en-es"?"español":"inglés";
+  return `Eres evaluador/a experto/a de exámenes de certificación de intérpretes médicos. Evalúa una TRADUCCIÓN A VISTA del ${srcL} al ${tgtL}.
+
+Criterios (rúbrica):
+${RUBRIC.map(r=>`- ${r[0]} (${r[1]==="c"?"crítico":"importante"}): ${r[2]}`).join("\n")}
+
+DOCUMENTO ORIGINAL (${srcL}):
+"""
+${doc.src}
+"""
+
+VERSIÓN MODELO (una de varias interpretaciones aceptables; no exijas esta redacción exacta):
+"""
+${doc.model}
+"""
+
+UNIDADES DE CALIFICACIÓN (número | segmento original | interpretaciones aceptables, separadas por " / "):
+${doc.units.map((u,i)=>`${i+1} | ${u[0]} | ${u[1]}`).join("\n")}
+
+TRANSCRIPCIÓN AUTOMÁTICA DE LA INTERPRETACIÓN DEL/DE LA ESTUDIANTE (${tgtL}). Tiempo usado: ${fmt(run.used||0)} de ${fmt(S.int)}.
+"""
+${transcript}
+"""
+
+Instrucciones:
+- La transcripción proviene de reconocimiento de voz: no penalices errores evidentes de transcripción (homófonos, puntuación, mayúsculas, cifras escritas con palabras). Sí penaliza omisiones, añadidos, distorsiones de sentido, cifras/dosis/fechas erróneas, falsos cognados y cambios de registro.
+- Para cada unidad: "correcto" si el sentido se conserva por completo con terminología adecuada (sinónimos válidos cuentan); "parcial" si se conserva solo en parte; "incorrecto" si el sentido cambia; "omitido" si no aparece.
+- En "heard" cita brevemente lo que dijo el/la estudiante para esa unidad ("" si se omitió).
+- Escribe todos los comentarios en español, de forma breve, concreta y profesional, dirigidos al/a la estudiante (tú).
+
+Responde SOLO con JSON con esta forma exacta:
+{"units":[{"n":1,"verdict":"correcto|parcial|incorrecto|omitido","heard":"...","note":"..."}],
+ "rubric":[{"criterion":"Integridad","rating":"cumplido|parcial|no_cumplido","comment":"..."}],
+ "summary":"2-3 frases sobre el desempeño global",
+ "omissions":["contenido omitido fuera de las unidades"],
+ "additions":["añadidos o comentarios propios"],
+ "advice":["2-3 recomendaciones concretas para la próxima práctica"]}
+Incluye exactamente ${doc.units.length} objetos en "units" (n = 1…${doc.units.length}) y los ${RUBRIC.length} criterios en "rubric", en el mismo orden.`;
+}
+
+/* ---------- timer ---------- */
+let tick=null;
+function startTimer(total, onTick, onDone){
+  clearInterval(tick);
+  const end=Date.now()+total*1000;
+  const step=()=>{const left=(end-Date.now())/1000; onTick(left,total); if(left<=0){clearInterval(tick);onDone()}};
+  step(); tick=setInterval(step,250);
+}
+
+/* ---------- routing ---------- */
+function route(){
+  clearInterval(tick);
+  try{ if(DICT&&DICT.active()) DICT.stop().catch(()=>{}); }catch(e){}
+  const m=location.hash.match(/^#doc-(\d+)$/);
+  const d=m&&DOCS.find(x=>x.id==m[1]);
+  if(d){ if(!run||run.doc.id!==d.id) run={doc:d,phase:"intro"}; render(); }
+  else { run=null; releaseMic(); renderHome(); }
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+
+/* ---------- home ---------- */
+function renderHome(){
+  const best=store.get("best",{});
+  const group=dir=>{
+    const list=DOCS.filter(d=>d.dir===dir);
+    return `<div class="sechead">${dirLabel(dir)}<span class="n">${list.length}</span></div>`+
+    list.map(d=>{
+      const b=best[d.id];
+      const bt=b!=null?`<span class="best ${b>=PASS?"pass":"fail"}">Mejor: ${b} %</span>`:"";
+      return `<a class="card" href="#doc-${d.id}" style="text-decoration:none">
+        <span class="num">${d.id}</span>
+        <span class="body"><h3>${esc(d.title)}</h3><p>${esc(d.desc)}</p>
+        <span class="meta"><span class="chip">${dirLabel(d.dir)}</span>≈ ${words(d.src)} palabras ${bt?"· "+bt:""}</span></span>
+        <span class="chev">${ICON.chev}</span></a>`;
+    }).join("");
+  };
+  $("#app").innerHTML=`
+  <header class="hero">
+    <div class="eyebrow">CTIS · Utah State University</div>
+    <button class="iconbtn gear" aria-label="Ajustes" onclick="openSettings()">${ICON.gear}</button>
+    <h1>Traducción a vista</h1>
+    <div class="sub">Simulador de práctica · Ámbito sanitario</div>
+    <div class="times"><span>${ICON.clock} ${fmt(S.read)} lectura</span><span>${ICON.clock} ${fmt(S.int)} interpretación</span></div>
+  </header>
+  <main>
+    <div class="intro-note">Documentos auténticos del entorno clínico para practicar la <b>traducción a vista</b> con tiempo real: lectura en silencio y luego interpretación en voz alta. Al terminar verás la <b>versión modelo</b>, las <b>unidades de calificación</b> marcadas en el texto y una <b>evaluación de tu voz con IA</b> según la rúbrica, que puedes revisar y ajustar.</div>
+    ${group("en-es")}
+    <div style="height:10px"></div>
+    ${group("es-en")}
+  </main>
+  <footer><div class="sig">Elsa Pérez, PhD · CTIS</div>Center for Translation and Interpretation Studies · Utah State University<br>Material de práctica. Nombres, datos y números de teléfono son ficticios.</footer>`;
+}
+
+/* ---------- document views ---------- */
+function bar(title){
+  return `<div class="bar"><a class="iconbtn" href="#" aria-label="Volver a la lista">${ICON.back}</a><span class="t">${esc(title)}</span><button class="iconbtn" aria-label="Ajustes" onclick="openSettings()">${ICON.gear}</button></div>`;
+}
+function paper(text, units, hits){
+  // highlight scoring units (first non-overlapping, case-insensitive match)
+  let ranges=[];
+  if(units){
+    const low=text.toLowerCase();
+    units.forEach((u,i)=>{
+      let from=0, idx;
+      while((idx=low.indexOf(u[0].toLowerCase(),from))!==-1){
+        const e=idx+u[0].length;
+        if(!ranges.some(r=>idx<r.e&&e>r.s)){ranges.push({s:idx,e,i});break}
+        from=idx+1;
+      }
+    });
+    ranges.sort((a,b)=>a.s-b.s);
+  }
+  let html="", pos=0;
+  ranges.forEach(r=>{
+    html+=esc(text.slice(pos,r.s));
+    html+=`<mark class="${hits&&hits[r.i]?"hit":""}">${esc(text.slice(r.s,r.e))}<sup>${r.i+1}</sup></mark>`;
+    pos=r.e;
+  });
+  html+=esc(text.slice(pos));
+  return `<div class="paper">`+html.split("\n").map(l=>{
+    const plain=l.replace(/<[^>]+>/g,"");
+    if(!plain.trim()) return `<div class="ln blank"></div>`;
+    const letters=plain.replace(/[^A-Za-zÁÉÍÓÚÑÜáéíóúñü]/g,"");
+    const cap=letters.length>6 && letters===letters.toUpperCase();
+    return `<p class="ln${cap?" cap":""}">${l}</p>`;
+  }).join("")+`</div>`;
+}
+
+function render(){
+  const {doc,phase}=run;
+  const app=$("#app");
+  if(phase==="intro"){
+    app.innerHTML=`${bar("Documento "+doc.id)}
+    <main>
+      <span class="chip">${dirLabel(doc.dir)}</span>
+      <h2 class="dtitle">${esc(doc.title)}</h2>
+      <div class="dsub">${esc(doc.desc)} · ≈ ${words(doc.src)} palabras</div>
+      <div class="timers">
+        <div>${ICON.book}<div class="big">${fmt(S.read)}</div><div class="lbl">Lectura en silencio</div></div>
+        <div>${ICON.mic}<div class="big">${fmt(S.int)}</div><div class="lbl">Interpretación en voz alta</div></div>
+      </div>
+      <div>Tienes ${fmt(S.read)} para leer en silencio y ${fmt(S.int)} para interpretar en voz alta. Durante la interpretación, el documento sigue en pantalla.</div>
+      <div class="box info">Meta de práctica: <b>${PASS} % o más</b> de las unidades de calificación interpretadas correctamente, sin errores críticos de la rúbrica.</div>
+      ${!capsReady&&window.claude?`<div class="panel"><p><span class="spin"></span> Comprobando si la evaluación con IA está disponible…</p></div>`:
+        aiAvailable()?`<div class="panel"><div class="rec-row">
+        <button class="switch" id="aiSw" role="switch" aria-checked="${wantAI}" aria-label="Evaluar mi voz con IA"></button>
+        <div><h4>Grabar y evaluar mi voz con IA</h4><p>Al pulsar <b>Comenzar</b> se activa el dictado (el navegador pedirá permiso la primera vez). Solo se transcribe lo que digas durante la fase de interpretación. Al terminar, Claude compara la transcripción con las unidades de calificación y la rúbrica. El audio no se guarda.</p></div>
+      </div></div>`:
+        `<div class="panel"><div class="rec-row">
+        <button class="switch" id="recSw" role="switch" aria-checked="${wantRec}" aria-label="Grabar mi interpretación"></button>
+        <div><h4>Grabar mi interpretación</h4><p id="recMsg">La evaluación automática con IA solo funciona dentro de Claude (Chrome, Edge o la app de escritorio). Aquí puedes grabarte para escucharte en la autoevaluación; el audio queda solo en este navegador.</p></div>
+      </div></div>`}
+      <details class="acc"><summary>¿Cómo se califica?</summary>
+        ${RUBRIC.map(r=>`<div class="crit"><div class="h">${r[0]}<span class="tag ${r[1]}">${r[1]==="c"?"CRÍTICO":"IMPORTANTE"}</span></div><p>${r[2]}</p></div>`).join("")}
+        <div class="crit"><p>Las <b>unidades de calificación</b> son los segmentos del texto que se revisan con más atención: términos médicos, cifras, dosis, fechas, condiciones y frases de registro. Cada unidad cuenta lo mismo.</p></div>
+      </details>
+    </main>
+    <div class="dock"><div class="in"><button class="btn" id="go">Comenzar</button></div></div>`;
+    const asw=$("#aiSw");
+    if(asw) asw.onclick=()=>{ wantAI=asw.getAttribute("aria-checked")!=="true"; asw.setAttribute("aria-checked",wantAI); store.set("wantAI",wantAI); };
+    const sw=$("#recSw");
+    if(sw) sw.onclick=async()=>{
+      wantRec=sw.getAttribute("aria-checked")!=="true";
+      sw.setAttribute("aria-checked",wantRec); store.set("wantRec",wantRec);
+      if(wantRec){
+        const ok=await ensureMic();
+        if(!ok){ wantRec=false; sw.setAttribute("aria-checked","false"); store.set("wantRec",false);
+          $("#recMsg").innerHTML="No se pudo acceder al micrófono en esta vista. Abre el archivo HTML directamente en tu navegador para grabar, o graba con el teléfono mientras practicas."; }
+        else $("#recMsg").textContent="Micrófono listo. La grabación empieza sola en la fase de interpretación y queda solo en este navegador.";
+      } else releaseMic();
+    };
+    $("#go").onclick=async()=>{
+      run.transcript=""; run.partial=""; run.collect=false; run.ai=null;
+      run.useAI = aiAvailable() && wantAI;
+      if(run.useAI) startDict();            // synchronous, inside the click
+      else if(wantRec) await ensureMic();
+      try{ actx = actx || new (window.AudioContext||window.webkitAudioContext)(); actx.resume&&actx.resume(); }catch(e){}
+      run.phase="reading"; render();
+    };
+  }
+  else if(phase==="reading"||phase==="interpreting"){
+    const isInt=phase==="interpreting";
+    app.innerHTML=`${bar("Documento "+doc.id)}
+    <main style="padding-top:0">
+      <div class="phase">
+        <div class="row"><span class="name">${isInt?(recorder||stream?'<span class="dot"></span>':"")+"Interpretación en voz alta":"Lectura en silencio"}</span><span class="clock" id="clk"></span></div>
+        <div class="prog ${isInt?"int":""}"><i id="pg" style="width:0"></i></div>
+        ${run.useAI?`<div class="live" id="live"></div>`:""}
+      </div>
+      ${paper(doc.src)}
+      <p class="hint">${isInt?"Interpreta todo el documento, de principio a fin. Si te autocorriges, hazlo una sola vez y sigue.":"Lee el documento completo. Identifica cifras, dosis y términos difíciles antes de empezar."}</p>
+    </main>
+    <div class="dock"><div class="in">
+      ${isInt?`<button class="btn rec" id="next">Terminar interpretación</button>`:`<button class="btn" id="next">Empezar a interpretar ahora</button>`}
+    </div></div>`;
+    const clk=$("#clk"), pg=$("#pg");
+    const total=isInt?S.int:S.read;
+    if(isInt){ run.intStart=Date.now(); run.transcript=""; run.collect=true; if(stream) startRec(); }
+    updLive();
+    const finish=async(auto)=>{
+      clearInterval(tick);
+      if(!isInt){ beep(1); run.phase="interpreting"; render(); window.scrollTo(0,0); }
+      else {
+        if(auto) beep(2);
+        run.used=Math.min(S.int,(Date.now()-run.intStart)/1000);
+        const nb=$("#next"); if(nb){nb.disabled=true;nb.textContent="Procesando…";}
+        if(run.useAI&&DICT){ try{ await DICT.stop(); }catch(e){} }
+        run.collect=false;
+        run.audio=await stopRec(); releaseMic();
+        run.phase="review"; render(); window.scrollTo(0,0);
+      }
+    };
+    startTimer(total,(left)=>{clk.textContent=fmt(left);clk.classList.toggle("low",left<=30);pg.style.width=Math.min(100,(1-left/total)*100)+"%"},()=>finish(true));
+    $("#next").onclick=()=>finish(false);
+  }
+  else if(phase==="review"){
+    run.hits = run.hits || doc.units.map(()=>false);
+    run.rates = run.rates || RUBRIC.map(()=>null);
+    run.tab = run.tab || "units";
+    const n=doc.units.length;
+    app.innerHTML=`${bar("Documento "+doc.id+" · Autoevaluación")}
+    <main>
+      <span class="chip">${dirLabel(doc.dir)}</span>
+      <h2 class="dtitle">${esc(doc.title)}</h2>
+      <div class="score"><div class="ring" id="ring"><span id="pct">0 %</span></div>
+        <div class="txt"><b id="cnt"></b><small>Marca cada unidad que interpretaste correctamente y completa la rúbrica.</small><div id="st"></div></div></div>
+      <div class="stats">
+        <div><b>${fmt(run.used||0)}</b><small>Tiempo usado</small></div>
+        <div><b>${fmt(S.int)}</b><small>Tiempo disponible</small></div>
+        <div><b>${Math.round(words(doc.src)/Math.max(1,(run.used||1))*60)}</b><small>Palabras/min aprox.</small></div>
+      </div>
+      ${run.audio?`<div class="panel"><h4>Tu grabación</h4><p>Escúchala mientras revisas las unidades.</p><audio controls src="${run.audio}"></audio></div>`:""}
+      ${SAMPLE?`<div class="aipanel" id="aiBox">
+        <h4>Evaluación con IA</h4>
+        <p class="sm">${run.useAI?"Transcripción automática de tu interpretación. Corrige solo errores evidentes de reconocimiento de voz antes de evaluar; no completes lo que no dijiste.":"No se usó el dictado en este intento. Puedes pegar o escribir aquí una transcripción de tu interpretación para evaluarla."}</p>
+        <textarea id="tx" placeholder="(Sin transcripción)">${esc(run.transcript||"")}</textarea>
+        <div class="row-btns"><button class="btn sm" id="evalBtn">${run.ai?"Volver a evaluar":"Evaluar con IA"}</button><span id="evalMsg" class="sm" style="margin:0"></span></div>
+        <div id="aiOut"></div>
+      </div>`:""}
+      <div class="tabs" role="tablist">
+        <button role="tab" data-t="units" aria-selected="${run.tab==="units"}">Unidades</button>
+        <button role="tab" data-t="src" aria-selected="${run.tab==="src"}">Original</button>
+        <button role="tab" data-t="model" aria-selected="${run.tab==="model"}">Versión modelo</button>
+        <button role="tab" data-t="rubric" aria-selected="${run.tab==="rubric"}">Rúbrica</button>
+      </div>
+      <div id="pane"></div>
+    </main>
+    <div class="dock"><div class="in">
+      <button class="btn ghost" id="again">Repetir</button>
+      <button class="btn" id="nextDoc">${doc.id<DOCS.length?"Siguiente documento":"Volver a la lista"}</button>
+    </div></div>`;
+    const pane=$("#pane");
+    const update=()=>{
+      const k=run.hits.filter(Boolean).length, p=Math.round(k/n*100);
+      const crit=RUBRIC.some((r,i)=>r[1]==="c"&&run.rates[i]==="n");
+      const ok=p>=PASS&&!crit;
+      $("#ring").style.setProperty("--p",p); $("#ring").style.setProperty("--c",ok?"var(--ok)":"var(--warn)");
+      $("#pct").textContent=p+" %"; $("#cnt").textContent=`${k} de ${n} unidades`;
+      $("#st").innerHTML=`<span class="status ${ok?"pass":"fail"}">${ok?"Alcanza la meta":crit?"Error crítico en la rúbrica":"Por debajo del "+PASS+" %"}</span>`;
+      const best=store.get("best",{}); if(best[doc.id]==null||p>best[doc.id]){best[doc.id]=p;store.set("best",best)}
+    };
+    const drawPane=()=>{
+      if(run.tab==="units"){
+        pane.innerHTML=`<div class="tools"><button class="link" id="all">Marcar todas</button><button class="link" id="none">Desmarcar</button></div>
+        <ul class="units">${doc.units.map((u,i)=>`<li class="unit ${run.hits[i]?"on":""}" data-i="${i}" role="checkbox" aria-checked="${run.hits[i]}" tabindex="0">
+          <span class="n">${i+1}</span><span><div class="s">${esc(u[0])}</div><div class="tr">Aceptable: <i>${esc(u[1])}</i></div>${aiUnit(i)}</span><span class="ck">${run.hits[i]?"✓":""}</span></li>`).join("")}</ul>`;
+        const toggle=el=>{const i=+el.dataset.i;run.hits[i]=!run.hits[i];el.classList.toggle("on",run.hits[i]);el.setAttribute("aria-checked",run.hits[i]);el.querySelector(".ck").textContent=run.hits[i]?"✓":"";update()};
+        pane.querySelectorAll(".unit").forEach(el=>{el.onclick=()=>toggle(el);el.onkeydown=e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle(el)}}});
+        $("#all").onclick=()=>{run.hits=run.hits.map(()=>true);drawPane();update()};
+        $("#none").onclick=()=>{run.hits=run.hits.map(()=>false);drawPane();update()};
+      } else if(run.tab==="src"){
+        pane.innerHTML=paper(doc.src,doc.units,run.hits)+`<p class="hint">Amarillo: unidad pendiente · Verde: unidad marcada como correcta.</p>`;
+      } else if(run.tab==="model"){
+        pane.innerHTML=paper(doc.model)+`<p class="hint">Versión modelo: una interpretación aceptable entre varias posibles.</p>`;
+      } else {
+        pane.innerHTML=`<div class="panel" style="padding:0">${RUBRIC.map((r,i)=>`<div class="crit" style="${i===0?"border-top:0":""}">
+          <div class="h">${r[0]}<span class="tag ${r[1]}">${r[1]==="c"?"CRÍTICO":"IMPORTANTE"}</span></div><p>${r[2]}</p>
+          ${run.ai&&run.ai.rubric&&run.ai.rubric[i]&&run.ai.rubric[i].comment?`<div class="aic"><b>IA:</b> ${esc(String(run.ai.rubric[i].comment))}</div>`:""}
+          <div class="rate" data-i="${i}">
+            <button class="y" aria-pressed="${run.rates[i]==="y"}" data-v="y">Cumplido</button>
+            <button class="p" aria-pressed="${run.rates[i]==="p"}" data-v="p">Parcial</button>
+            <button class="n" aria-pressed="${run.rates[i]==="n"}" data-v="n">No cumplido</button>
+          </div></div>`).join("")}</div>
+          <div class="panel"><h4>Notas para la próxima vez</h4><p style="margin-bottom:8px">Términos que te costaron, omisiones, autocorrecciones.</p>
+          <textarea id="notes" placeholder="Ej.: dudé con «incentive spirometer»; omití la segunda cifra de temperatura…">${esc(store.get("notes-"+doc.id,""))}</textarea></div>`;
+        pane.querySelectorAll(".rate").forEach(g=>g.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+          const i=+g.dataset.i; run.rates[i]=run.rates[i]===b.dataset.v?null:b.dataset.v;
+          g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",run.rates[i]===x.dataset.v)); update();
+        }));
+        $("#notes").oninput=e=>store.set("notes-"+doc.id,e.target.value);
+      }
+    };
+    app.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{run.tab=b.dataset.t;app.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));drawPane()});
+    function aiUnit(i){
+      const u=run.ai&&run.ai.units&&run.ai.units.find(x=>+x.n===i+1); if(!u) return "";
+      const v=["correcto","parcial","incorrecto","omitido"].includes(u.verdict)?u.verdict:"parcial";
+      return `<div class="ai"><span class="vb ${v}">${v}</span>${u.heard?`<q>${esc(String(u.heard))}</q> `:""}${u.note?esc(String(u.note)):""}</div>`;
+    }
+    const drawAI=()=>{
+      const out=$("#aiOut"); if(!out) return;
+      const a=run.ai; if(!a){out.innerHTML="";return}
+      const li=arr=>Array.isArray(arr)&&arr.filter(Boolean).length?`<ul>${arr.filter(Boolean).map(x=>`<li>${esc(String(x))}</li>`).join("")}</ul>`:`<p class="sm" style="margin:4px 0 0">Ninguno.</p>`;
+      out.innerHTML=`<div class="lbl">Resumen</div><p style="margin:4px 0 0;font-size:14.5px">${esc(String(a.summary||""))}</p>
+        <div class="lbl">Omisiones</div>${li(a.omissions)}
+        <div class="lbl">Añadidos</div>${li(a.additions)}
+        <div class="lbl">Para la próxima práctica</div>${li(a.advice)}
+        <p class="sm" style="margin-top:10px">Las unidades y la rúbrica se marcaron según la evaluación de la IA. Revísalas con tu criterio: puedes cambiar cualquier marca.</p>`;
+    };
+    const evalBtn=$("#evalBtn");
+    if(evalBtn){
+      $("#tx").oninput=e=>{run.transcript=e.target.value};
+      evalBtn.onclick=async()=>{
+        const tx=($("#tx").value||"").trim();
+        const msg=$("#evalMsg");
+        if(tx.split(/\s+/).length<5){ msg.textContent="La transcripción está vacía o es muy corta."; return; }
+        evalBtn.disabled=true; msg.innerHTML='<span class="spin"></span> Evaluando… puede tardar hasta un minuto.';
+        try{
+          const a=await SAMPLE.json(aiPrompt(doc,tx));
+          if(!a||!Array.isArray(a.units)) throw {code:"invalid_json"};
+          run.ai=a;
+          run.hits=doc.units.map((u,i)=>{const x=a.units.find(y=>+y.n===i+1);return !!x&&x.verdict==="correcto"});
+          if(Array.isArray(a.rubric)) run.rates=RUBRIC.map((r,i)=>VMAP[a.rubric[i]&&a.rubric[i].rating]||null);
+          msg.textContent=""; evalBtn.textContent="Volver a evaluar";
+          drawAI(); drawPane(); update();
+        }catch(e){
+          const m={not_granted:"No se permitió usar Claude en esta página.",sampling_disabled:"Claude no está disponible para esta cuenta.",rate_limited:"Demasiadas solicitudes. Intenta de nuevo en un momento.",invalid_json:"La respuesta no tuvo el formato esperado. Intenta de nuevo.",refused:"No se pudo evaluar este texto."};
+          msg.textContent=m[e&&e.code]||"Hubo un problema con la evaluación. Intenta de nuevo.";
+          if(e&&(e.code==="not_granted"||e.code==="sampling_disabled")) evalBtn.hidden=true;
+        }finally{ evalBtn.disabled=false; }
+      };
+    }
+    drawAI(); drawPane(); update();
+    $("#again").onclick=()=>{run={doc,phase:"intro"};render();window.scrollTo(0,0)};
+    $("#nextDoc").onclick=()=>{location.hash=doc.id<DOCS.length?"#doc-"+(doc.id+1):""};
+  }
+}
+
+/* ---------- settings ---------- */
+function syncSettings(){
+  $("#o-read").textContent=fmt(S.read); $("#o-int").textContent=fmt(S.int); $("#o-size").textContent=S.size+" px";
+  $("#beepSw").setAttribute("aria-checked",S.beep);
+  document.documentElement.style.setProperty("--docsize",S.size+"px");
+  store.set("settings",S);
+}
+function openSettings(){ syncSettings(); $("#settings").classList.add("open"); }
+function closeSettings(){ $("#settings").classList.remove("open"); if(!run||run.phase==="intro") route(); }
+document.querySelectorAll(".step button").forEach(b=>b.onclick=()=>{
+  const k=b.dataset.k,d=+b.dataset.d;
+  if(k==="read") S.read=Math.min(300,Math.max(30,S.read+d));
+  if(k==="int") S.int=Math.min(600,Math.max(60,S.int+d));
+  if(k==="size") S.size=Math.min(24,Math.max(14,S.size+d));
+  syncSettings();
+});
+$("#beepSw").onclick=()=>{S.beep=!S.beep;syncSettings()};
+$("#resetBtn").onclick=()=>{store.clear();Object.assign(S,{read:120,int:240,size:17,beep:true});syncSettings();$("#resetBtn").textContent="Listo ✓"};
+$("#closeSet").onclick=closeSettings;
+$("#settings").onclick=e=>{if(e.target.id==="settings")closeSettings()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSettings()});
+
+route();
+</script>
+</body>
+</html>
